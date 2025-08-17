@@ -6,13 +6,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://mohamed:secret123@cluster0.y2aft.mongodb.net/Testting?retryWrites=true&w=majority&appName=Cluster0'), 
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_URI!), 
     PassportModule,
     JwtModule.register({
-      secret: '123',
+      secret: process.env.JWT_SECRET,
       signOptions: {expiresIn: '1h'}
     }),   
     UserModule, AuthModule

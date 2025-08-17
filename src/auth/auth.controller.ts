@@ -13,7 +13,7 @@ export class AuthController {
   async registerUser(@Body() createUser: CreateUserDto) : Promise<Auth> {
     return this.authService.registerUser(createUser)
   }
-
+z
   @Post('login')
   async loginUser(@Body() loginUser: CreateUserDto) : Promise<{access_token : string}> {
     return this.authService.loginUser(loginUser)

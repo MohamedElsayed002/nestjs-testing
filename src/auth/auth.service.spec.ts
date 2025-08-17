@@ -78,6 +78,7 @@ describe('AuthService (Integration', () => {
         password: "password123"
       })
 
+      // @ts-ignore
       const result = await service.loginUser({
         email: 'mohamed@example.com',
         password: 'password123'
