@@ -29,7 +29,7 @@ describe('UserController', () => {
     service = module.get<UserService>(UserService);
   });
 
-  it('should return an empty array if no users exist', async () => {
+  it('should return an empty array if no users exists', async () => {
     mockUserService.findAll.mockResolvedValue([]);
     const result = await controller.findAll();
     expect(result).toEqual([]);
@@ -83,6 +83,7 @@ describe('UserController', () => {
     mockUserService.update.mockResolvedValue(updatedUser);
 
     // call controller
+    // @ts-ignore
     const result = await controller.update(+userId, updateDto);
 
     // expectations
