@@ -114,7 +114,7 @@ describe('AuthService (Integration', () => {
 
 
   describe('show user data', () => {
-    it('should return the current user dataaaaaaaaa', async () => {
+    it('should return the current user data', async () => {
       // register user 
       const created = await service.registerUser({
         email: 'profile@gmail.com',
